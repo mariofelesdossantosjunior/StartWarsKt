@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.mario.startwarskt.R
-import com.mario.startwarskt.Util.inflate
+import com.mario.startwarskt.util.inflate
 import com.mario.startwarskt.model.Movie
 import kotlinx.android.synthetic.main.movies_item_row.view.*
 

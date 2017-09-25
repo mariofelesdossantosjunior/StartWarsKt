@@ -2,9 +2,8 @@ package com.mario.startwarskt.api
 
 import android.net.Uri
 import com.google.gson.GsonBuilder
-import com.mario.startwarskt.Util.Constant.BASE_URL
+import com.mario.startwarskt.util.Constant.BASE_URL
 import com.mario.startwarskt.model.Character
-import com.mario.startwarskt.model.Film
 import com.mario.startwarskt.model.Movie
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

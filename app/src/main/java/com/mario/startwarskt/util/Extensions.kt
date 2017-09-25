@@ -1,4 +1,4 @@
-package com.mario.startwarskt.Util
+package com.mario.startwarskt.util
 
 import android.view.LayoutInflater
 import android.view.View

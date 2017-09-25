@@ -1,4 +1,4 @@
-package com.mario.startwarskt.Util
+package com.mario.startwarskt.util
 
 /**
  * Created by mario on 9/24/17.
