@@ -42,12 +42,14 @@ class StartWarsApi {
             .flatMap { filmResult -> Observable.from(filmResult.results) }
             .map { film -> Movie(film.title, film.episodeId, mutableListOf()) }
 
+
     fun loadMoviesFull(): Observable<Movie> {
         return service.listMovies()
                 .flatMap { filmResults -> Observable.from(filmResults.results) }
                 .flatMap { film ->
                     Observable.zip(
                             Observable.just(Movie(film.title, film.episodeId, ArrayList<Character>())),
+
                             Observable.from(film.personUrls)
                                     .flatMap { personUrl ->
                                         service.loadPerson(Uri.parse(personUrl).lastPathSegment)
@@ -56,6 +58,7 @@ class StartWarsApi {
                                         Character(person!!.name, person.gender)
                                     }
                                     .toList(),
+
                             { movie, characters ->
                                 movie.characters.addAll(characters)
                                 movie

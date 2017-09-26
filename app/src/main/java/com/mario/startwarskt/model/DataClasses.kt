@@ -9,6 +9,7 @@ data class Movie(val title: String,
 
 data class Character(val name: String,
                      val gender: String){
+
     override fun toString(): String {
         return "$name - $gender"
     }

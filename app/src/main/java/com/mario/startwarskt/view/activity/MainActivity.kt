@@ -23,29 +23,30 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         setupRecycleView()
 
-        StartWarsApi().loadMovies()
+        StartWarsApi().loadMoviesFull()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({movie -> showMovieOnIU(movie)},
-                        { erro -> erro.printStackTrace()},
-                        { adapter.notifyDataSetChanged()})
+                .subscribe(
+                        { movie -> showMovieOnIU(movie) },
+                        { erro -> erro.printStackTrace() },
+                        { adapter.notifyDataSetChanged() }
+                )
     }
 
     private fun setupRecycleView() {
         rv_main_movies.setHasFixedSize(true)
-        rv_main_movies.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        rv_main_movies.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+        rv_main_movies.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_main_movies.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         rv_main_movies.adapter = adapter
     }
 
-    fun showMovieOnIU(movie: Movie){
+    fun showMovieOnIU(movie: Movie) {
         movies.add(movie)
         adapter.movies = movies
     }

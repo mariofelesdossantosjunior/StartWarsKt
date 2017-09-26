@@ -30,6 +30,7 @@ class MovieAdapter(private val listener: (Movie) -> Unit)
 class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(movie: Movie, listener: (Movie) -> Unit) = with(itemView) {
         tv_movies_item_title.text = movie.title
+        tv_movies_item_characters.text = movie.characters.toString()
         setOnClickListener { listener(movie) }
     }
 }
